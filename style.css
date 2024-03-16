@@ -1,0 +1,130 @@
+body{
+    display: grid;
+    background-size: cover;
+    background-repeat: repeat;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+    color: rgba(63, 62, 65, 0.8);
+}
+
+html{
+    background-image: url(./assest/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+::selection{
+    background-color: transparent;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 50px;
+    margin-top: 70px;
+    z-index: 1;
+}
+
+.header-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20% 7%;
+    background-color: aquamarine;
+    width: 300px;
+    height: 60px;
+    transform: rotate(8deg);
+    z-index: 1;
+}
+
+.h2{
+    font-size: 35px;
+    z-index: 0;
+}
+
+.h3{
+    transform: rotate(2deg);
+}
+
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.input-text{
+    background-color: transparent;
+    font-family: cursive;
+    font-size: 22px;
+    border: solid 3px transparent;
+    width: 300px;
+    border-bottom: dashed 3px aquamarine;
+    box-sizing: border-box;
+    padding: 7px;
+}
+
+.input-text:focus{
+    outline: none;
+}
+
+.input{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn{
+    border: 2px solid gray;
+    transform: rotate(5deg);
+    transform-origin: center;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 70px;
+    height: 40px;
+    background: transparent;
+    box-shadow: 0px 3px 0px  aquamarine;
+    font-family: cursive;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+}
+
+.btn:active{
+    transform: translate(5px); 
+    padding-bottom: 0px;
+    outline: 0;
+} 
+
+.task{
+    display: flex;
+    justify-content: left;
+    align-items: lef;
+    padding-left: 60px;
+    font-size: 22px;
+}
+
+#task-list li{
+    position: relative;
+    padding: 6px;
+    cursor: pointer;
+}
+
+
+#task-list li:hover{
+    text-decoration: line-through wavy aquamarine;
+}
+
+#task-list li:focus{
+    text-decoration: line-through wavy aquamarine;
+}
