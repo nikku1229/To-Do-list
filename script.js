@@ -1,5 +1,7 @@
 const inputData = document.querySelector("#input-text");
-const listItem = document.querySelector("#task-list");
+const listItem1 = document.querySelector("#task-list1");
+const listItem2 = document.querySelector("#task-list2");
+const check = document.querySelector("#check");
 
 
 // Add item in list
@@ -7,21 +9,32 @@ function addItems(){
     if(inputData.value === ''){
         alert("You need to add some task!!");
     }
-    else{   
-        let  li = document.createElement("li");
-        li.innerHTML = inputData.value;
-        listItem.appendChild(li);
+    else{
+        if(check.checked){
+            let  li = document.createElement("li");
+            li.innerHTML = inputData.value;
+            listItem1.append(li);
+            saveData1();
+        }
+        else{
+            let  li = document.createElement("li");
+            li.innerHTML = inputData.value;
+            listItem2.append(li);
+            saveData2();
+        }
     }
     inputData.value = '';
-    saveData();
 }
 
+
 inputData.addEventListener("keypress", function (e){
-    // if(e.key === 'Enter' && inputData.value === ''){
-    //     alert("You need to add some task!!");
-    // }
     if(e.key === 'Enter'){
-        addItems();
+        if(inputData.value === ''){
+            alert("You need to add some task!!");
+        }
+        else{
+            addItems();
+        }
     }
 });
 
@@ -29,22 +42,37 @@ inputData.addEventListener("keypress", function (e){
 
 //  Removw item in list
 
-listItem.addEventListener("dblclick", function(e){
+listItem1.addEventListener("dblclick", function(e){
     if(e.target.tagName === "LI"){
         e.target.remove();
-        saveData();
+        saveData1();
     }
-},false)
+},false);
+
+listItem2.addEventListener("dblclick", function(e){
+    if(e.target.tagName === "LI"){
+        e.target.remove();
+        saveData2();
+    }
+},false);
 
 
 
 // local storage 
 
-function saveData(){
-    localStorage.setItem("List", listItem.innerHTML);
+function saveData1(){
+    localStorage.setItem("List1", listItem1.innerHTML);
 }
 
-function  getData(){
-    listItem.innerHTML = localStorage.getItem("List");
+function saveData2(){
+    localStorage.setItem("List2", listItem2.innerHTML);
 }
-getData();
+
+function  getData1(){
+    listItem1.innerHTML = localStorage.getItem("List1");
+}
+function  getData2(){
+    listItem2.innerHTML = localStorage.getItem("List2");
+}
+getData1();
+getData2();
