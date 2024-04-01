@@ -84,6 +84,36 @@ html{
 }
 
 
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 2px solid gray;
+}
+
+input[type="checkbox"]::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  background-color: aquamarine;
+  transition: width 0.2s, height 0.2s;
+}
+
+input[type="checkbox"]:focus{
+  outline: none;
+}
+input[type="checkbox"]::before:focus{
+  outline: none;
+}
+
+
+input[type="checkbox"]:checked::before {
+  width: 16.5px;
+  height: 16.5px;
+}
+
 .btn{
     border: 2px solid gray;
     transform: rotate(5deg);
@@ -109,22 +139,22 @@ html{
 .task{
     display: flex;
     justify-content: left;
-    align-items: lef;
-    padding-left: 60px;
     font-size: 22px;
+    gap: 10em;
 }
 
-#task-list li{
+#task-list1 li, #task-list2 li{
+    list-style: none;
     position: relative;
     padding: 6px;
     cursor: pointer;
 }
 
 
-#task-list li:hover{
+#task-list1 li:hover, #task-list2 li:hover{
     text-decoration: line-through wavy aquamarine;
 }
 
-#task-list li:focus{
+#task-list1 li:focus, #task-list2 li:focus{
     text-decoration: line-through wavy aquamarine;
 }
